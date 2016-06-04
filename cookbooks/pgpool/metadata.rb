@@ -1,0 +1,7 @@
+name 'pgpool'
+maintainer 'The Authors'
+maintainer_email 'you@example.com'
+license 'all_rights'
+description 'Installs/Configures pgpool'
+long_description 'Installs/Configures pgpool'
+version '0.1.0'

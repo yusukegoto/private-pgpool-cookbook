@@ -67,6 +67,6 @@ Vagrant.configure(2) do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "chef_solo" do |chef|
     chef.cookbooks_path = "cookbooks"
-    chef.nodes_path = "nodes"
+    chef.add_recipe "pgpool"
   end
 end
