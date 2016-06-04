@@ -22,8 +22,10 @@ execute 'initdb' do
   not_if "test -f #{data_dir}/postgresql.conf"
 end
 
-template "#{data_dir}/pg_hba.conf" do
-  notifies :reload, 'service[postgresql-9.5]'
+%w(pg_hba.conf postgresql.conf).each do |pg_conf|
+  template "#{data_dir}/#{pg_conf}" do
+    notifies :reload, 'service[postgresql-9.5]'
+  end
 end
 
 service 'postgresql-9.5' do
