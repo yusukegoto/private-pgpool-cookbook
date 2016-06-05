@@ -7,6 +7,11 @@ include_recipe 'pgpool::postgres95'
 
 package 'pgpool-II-95'
 
+directory '/var/log/pgpool-II-95' do
+  owner 'postgres'
+  group 'postgres'
+end
+
 %w(pgpool.conf pool_hba.conf).each do |pool_conf|
   template "/etc/pgpool-II-95/#{pool_conf}" do
     notifies :reload, 'service[pgpool-II-95]'
